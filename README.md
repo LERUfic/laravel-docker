@@ -22,9 +22,9 @@ website
 3. mysql → mysql:5.7
 
 ## Setup Initial DB
-You can choose between using seeder or if you want to use your own sql file for initial database.  
+You can choose between using seeder or your own sql file for initial database.  
 ### Using Seeder
-1. Open file *docker/php/Dockerfile* and uncomment line 30-32
+1. Open file *docker/php/Dockerfile* and uncomment lines 30-32
     ```yaml
     Before:
     30 # RUN php artisan migrate:reset
@@ -44,6 +44,18 @@ You can choose between using seeder or if you want to use your own sql file for 
     After:
     11 # - ./docker/mysql/based.sql:/docker-entrypoint-initdb.d/based.sql
     ```
+### Using SQL File
+1. Make sure lines 30-32 in file *docker/php/Dockerfile* are commented
+    ```yaml
+    30 # RUN php artisan migrate:reset
+    31 # RUN php artisan migrate
+    32 # RUN php artisan db:seed
+    ```
+2. Make sure line 11 in file *docker-compose.yml* is uncommented
+    ```yaml
+    11 - ./docker/mysql/based.sql:/docker-entrypoint-initdb.d/based.sql
+    ```
+3. Copy your sql file to *docker/mysql* with *based.sql* as a file name.  
 
 ## Setup Initial storage
 In this deployment we use command *php artisan storage:link* to connect public directory with storage directory.  
