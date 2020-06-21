@@ -3,7 +3,7 @@ Docker compose to setup nginx, php and mysql for laravel 7.16.1.
 
 ## Directory Structure
 ```sh
-website
+laravel-docker
 ├── docker
 │   ├── mysql
 │   │   └── based.sql
@@ -82,7 +82,7 @@ To setup initial files for storage directory just paste your file into *init-sto
     ```
 4. Remove php-fpm image
     ```bash
-    docker rmi website_php_fpm
+    docker rmi laravel-docker_php_fpm
     ```
 5. Reset mysql data
     ```bash
