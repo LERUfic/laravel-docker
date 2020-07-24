@@ -23,8 +23,8 @@ services:
       dockerfile: ./docker/php/Dockerfile
     working_dir: /var/www/
     container_name: leru_php_fpm
-    volumes:
-      - leru-volume:/var/www
+    # volumes:
+      # - leru-volume:/var/www
     depends_on:
       - mysql
     networks:
@@ -37,7 +37,7 @@ services:
       - tempest
     volumes:
       - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      - leru-volume:/var/www/
+      # - leru-volume:/var/www/
     depends_on:
       - php_fpm
       - mysql
@@ -47,5 +47,5 @@ services:
 networks:
   tempest:
     driver: bridge
-volumes:
-  leru-volume:
+# volumes:
+#   leru-volume:
