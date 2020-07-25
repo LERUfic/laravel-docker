@@ -20,7 +20,7 @@ RUN php artisan config:clear
 RUN php artisan cache:clear
 RUN php artisan storage:link
 
-RUN php artisan key:generate
+# RUN php artisan key:generate
 
 # RUN php artisan route:cache
 RUN php artisan config:cache
