@@ -1,4 +1,4 @@
-FROM lerufic/laravel:development
+FROM lerufic/laravel:latest
 
 COPY . /var/www
 
